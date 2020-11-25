@@ -39,10 +39,10 @@ input {
   @apply mb-6 bg-gray-200 border-none h-8 py-4;
 }
 
-input[type=submit] {
+input[type=submit], button {
   @apply shadow border-none p-2 text-white transition rounded bg-primary;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, button:hover {
   @apply opacity-25;
 }
