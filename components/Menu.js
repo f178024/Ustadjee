@@ -8,7 +8,9 @@ export default function Menu() {
         { name: 'class', link: '/link', icon: faChalkboardTeacher },
         { name: 'students', link: '/link', icon: faChalkboardTeacher },
         { name: 'courses', link: '/link', icon: faBook },
-        { name: 'schedule', link: '/link', icon: faCalendarAlt }])
+        { name: 'schedule', link: '/link', icon: faCalendarAlt },
+        { name: 'quiz', link: '/quiz', icon: faCalendarAlt }
+    ])
 
     return (
         <nav>
