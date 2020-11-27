@@ -54,11 +54,11 @@ textarea {
 }
 
 input[type=submit], button, input[type=button] {
-  @apply shadow border-none p-2 text-white transition rounded bg-primary;
+  @apply shadow border-none p-2 text-white transition rounded bg-primary cursor-pointer transition duration-500;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 input[type=submit]:hover, button:hover {
-  @apply opacity-25;
+  @apply opacity-75;
 }
