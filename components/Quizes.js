@@ -30,7 +30,7 @@ export default function Quizes(){
 
     return (
         <div>
-            <h2>Quizes</h2>
+            <h1>Quizes</h1>
             <Card>
                 <table className="w-full">
                     <tr>
