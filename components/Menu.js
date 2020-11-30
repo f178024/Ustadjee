@@ -4,11 +4,11 @@ import { faChartPie, faChalkboardTeacher, faBook, faCalendarAlt } from '@fortawe
 
 export default function Menu() {
     const [items, setItems] = useState([
-        { name: 'dashboard', link: '/link', icon: faChartPie },
-        { name: 'class', link: '/link', icon: faChalkboardTeacher },
-        { name: 'students', link: '/link', icon: faChalkboardTeacher },
-        { name: 'courses', link: '/link', icon: faBook },
-        { name: 'schedule', link: '/link', icon: faCalendarAlt },
+        { name: 'dashboard', link: '/', icon: faChartPie },
+        { name: 'class', link: '/class', icon: faChalkboardTeacher },
+        { name: 'students', link: '/students', icon: faChalkboardTeacher },
+        { name: 'courses', link: '/courses', icon: faBook },
+        { name: 'schedule', link: '/schedule', icon: faCalendarAlt },
         { name: 'quiz', link: '/quiz', icon: faCalendarAlt }
     ])
 
