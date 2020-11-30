@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import AddAttendance from '../../components/AddAttendance'
 import AddFile from '../../components/AddFile'
-import Files from '../../components/FIles'
+import Files from '../../components/Files'
 import TeacherDashboard from '../../components/TeacherDashboard'
 
 const Post = () => {

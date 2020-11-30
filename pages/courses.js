@@ -11,7 +11,8 @@ function courses(){
 
     return (
         <TeacherDashboard>
-            <AddCourse />
+            {/* <AddCourse /> */}
+            
         </TeacherDashboard>
     )
 }

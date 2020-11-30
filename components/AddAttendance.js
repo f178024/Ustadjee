@@ -30,7 +30,7 @@ export default function AddAttendance() {
                             return <tr>
                                 <td>{item.name}</td>
                                 <td>
-                                    <select value={item.status}>
+                                    <select defaultValue={item.status}>
                                         <option>Present</option>
                                         <option>Absent</option>
                                         <option>N/A</option>

@@ -3,7 +3,7 @@ import {useState} from 'react'
 import Menu from '../components/Menu'
 import Topbar from '../components/Topbar'
 import ContentArea from '../components/ContentArea'
-import Files from '../components/Files'
+import Files from './Files'
 import AddFile from '../components/AddFile'
 
 import AddCourse from '../components/AddCourse'
