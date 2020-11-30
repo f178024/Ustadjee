@@ -24,17 +24,17 @@ export default function Files(){
         <Card>
             <table className="w-full">
                 <tr className="mb-2">
-                    <th className="text-left text-xl text-gray-600">Name</th>
-                    <th className="text-left text-xl text-gray-600">Type</th>
-                    <th className="text-left text-xl text-gray-600">Uploaded</th>
-                    <th className="text-left text-xl text-gray-600">Delete</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Uploaded</th>
+                    <th>Delete</th>
                 </tr>
                 {
                     files.map(function(item){
                         return <tr>
-                            <td className="py-2 w-auto">{ item.name }</td>
-                            <td className="py-2 w-auto">{ item.type }</td>
-                            <td className="py-2 w-auto">{ item.date }</td>
+                            <td>{ item.name }</td>
+                            <td>{ item.type }</td>
+                            <td>{ item.date }</td>
                             <td>Blank</td>
                         </tr>
                     })

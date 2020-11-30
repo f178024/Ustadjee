@@ -64,3 +64,11 @@ input[type=submit], button, input[type=button] {
 input[type=submit]:hover, button:hover {
   @apply opacity-75;
 }
+
+th {
+  @apply text-left text-xl text-gray-600 py-4
+}
+
+td {
+  @apply py-2 w-auto
+}

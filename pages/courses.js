@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import AddCourse from '../components/AddCourse'
 import TeacherDashboard from '../components/TeacherDashboard'
+import Course from '../components/Course'
 
 function courses(){
     const [addCourse, setAddCourse] = useState(true)
@@ -12,7 +13,7 @@ function courses(){
     return (
         <TeacherDashboard>
             {/* <AddCourse /> */}
-            
+            <Course />
         </TeacherDashboard>
     )
 }
