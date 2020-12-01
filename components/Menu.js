@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import MenuItem from './MenuItem'
-import { faChartPie, faChalkboardTeacher, faBook, faCalendarAlt, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
+import { faChartPie, faChalkboardTeacher, faBook, faCalendarAlt, faUserGraduate, faCog } from '@fortawesome/free-solid-svg-icons'
 
 export default function Menu() {
     const [items, setItems] = useState([
@@ -8,7 +8,8 @@ export default function Menu() {
         { name: 'class', link: '/class', icon: faChalkboardTeacher },
         { name: 'students', link: '/students', icon: faUserGraduate },
         { name: 'courses', link: '/courses', icon: faBook },
-        { name: 'quiz', link: '/quiz', icon: faCalendarAlt }
+        { name: 'quiz', link: '/quiz', icon: faCalendarAlt },
+        { name: 'settings', link: '/settings', icon: faCog },
     ])
 
     return (
