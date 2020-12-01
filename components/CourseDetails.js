@@ -21,16 +21,16 @@ export default function CourseDetails(){
             <h2>Details</h2>
             <Card>
                 <h3>Description</h3>
-                <p>{details.description}</p>
+                <p>{details.description}</p><br/>
 
                 <h3>Subject</h3>
-                <p>{details.subject}</p>
+                <p>{details.subject}</p><br/>
 
                 <h3>Subject</h3>
-                <p>{details.topic}</p>
+                <p>{details.topic}</p><br/>
 
                 <h3>Subject</h3>
-                <p>{details.subject}</p>
+                <p>{details.subject}</p><br/>
             </Card>
         </div>
     )

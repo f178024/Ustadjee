@@ -18,7 +18,7 @@ export default function AddAttendance() {
     ])
     return (
         <div>
-            <h1>Attendance</h1>
+            <h2>Attendance</h2>
             <Card>
                 <table className="w-full">
                     <tr>

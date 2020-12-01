@@ -65,6 +65,10 @@ input[type=submit]:hover, button:hover {
   @apply opacity-75;
 }
 
+h3 {
+  @apply text-primary
+}
+
 th {
   @apply text-left text-xl text-gray-600 py-4
 }
