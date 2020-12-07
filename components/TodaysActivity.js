@@ -20,10 +20,10 @@ function TodaysActivity() {
     return (
         <div>
             <h2>You have { classes.length } classes today</h2>
-            <div className="flex flex-row">
+            <div className="flex flex-row sm:flex-col">
                 {
                     classes.map(function (item) {
-                        return <div className="mx-4">
+                        return <div className="mx-4 sm:my-2">
                             <Card>
                                 <p className="text-2xl">{item.name}</p>
                                 <p className="text-lg">{item.time}</p>

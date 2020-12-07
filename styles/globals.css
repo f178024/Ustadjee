@@ -1,6 +1,7 @@
 /* @import "tailwindcss/base"; */
-@import "tailwindcss/components";
+/* @import "tailwindcss/components"; */
 @import "tailwindcss/utilities";
+@import "tailwindcss/screens";
 
 .text-primary {
   @apply text-purple-500;
@@ -69,10 +70,24 @@ h3 {
   @apply text-primary
 }
 
+table {
+  
+}
+
 th {
   @apply text-left text-xl text-gray-600 py-4
 }
 
 td {
   @apply py-2 w-auto
+}
+
+tr:even {
+  @apply bg-gray-100
+}
+
+@screen sm {
+  h1, h2 {
+    @apply w-full text-center
+  }
 }
