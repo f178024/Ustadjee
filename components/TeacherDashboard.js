@@ -20,7 +20,7 @@ function TeacherDashboard(props){
     return (
         <div>
             <Topbar />
-            <div className="flex flex-row">
+            <div className="flex flex-row sm:flex-col">
                 <Menu />
                 <ContentArea>
                     {
