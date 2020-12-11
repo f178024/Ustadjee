@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+
 import courses from "../pages/courses";
 import Card from './Card'
 
@@ -31,7 +32,6 @@ export default function Course() {
 
     return (
         <div>
-            <h1>Courses</h1>
             <Card>
                 <table className="w-full">
                     <tr>
