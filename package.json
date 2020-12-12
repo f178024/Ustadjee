@@ -11,6 +11,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
+    "axios": "^0.21.0",
+    "firebase-admin": "^9.4.2",
     "mongodb": "^3.6.3",
     "next": "10.0.0",
     "next-session": "^3.3.2",
