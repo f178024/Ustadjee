@@ -1,10 +1,12 @@
-import {useState} from 'react'
+import { useEffect } from 'react'
 
 import Menu from '../components/Menu'
 import Topbar from '../components/Topbar'
 import ContentArea from '../components/ContentArea'
 
-function TeacherDashboard(props){
+function TeacherDashboard(props) {
+    
+
     return (
         <div className="min-h-screen">
             <Topbar />

@@ -15,6 +15,7 @@
     "firebase-admin": "^9.4.2",
     "mongodb": "^3.6.3",
     "next": "10.0.0",
+    "next-iron-session": "^4.1.10",
     "next-session": "^3.3.2",
     "postcss": "^8.1.4",
     "react": "17.0.1",
