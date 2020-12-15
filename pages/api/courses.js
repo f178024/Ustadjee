@@ -14,7 +14,6 @@ async function handler(req, res) {
         for(let i = 0; i < result.length; i++){
             result[i].created = new ObjectId(result[i]._id).getTimestamp()
         }
-        console.log(result)
         res.json(result)
     }).catch(err => {
         console.log(err)

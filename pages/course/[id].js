@@ -35,9 +35,10 @@ const Post = () => {
   return (
     <TeacherDashboard>
       <h1>Information of {course.title}</h1>
+      <img src={'/api/course/image/' + course._id} alt=""/>
       <CourseDetails course={course} />
 
-      <Files files={course.files} id={id}/>
+      <Files files={course.files} id={id} />
       <AddAttendance />
     </TeacherDashboard>
   )

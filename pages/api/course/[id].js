@@ -9,6 +9,7 @@ export default async function handler(req, res) {
     db.collection('Courses').findOne({
         _id: ObjectId(id)
     }).then(result => {
+        
         res.json(result)
     }).catch(err => {
         console.log(err)

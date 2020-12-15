@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import Card from './Card'
 import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 function AddQualification(props) {
@@ -98,7 +97,7 @@ function AddQualification(props) {
                 <option>1951</option>
             </select>
             <input type="button" value="Add Qualification" onClick={handleAddQualification} />
-            <ToastContainer />
+            
         </div>
     )
 }
@@ -108,8 +107,8 @@ export default function Qualification(props) {
 
     useEffect(() => {
         axios.get('/api/user/qualification').then(result => {
-            setQualifications(result.data.qualification)
-            console.log(result.data.qualification)
+            setQualifications(result.data.qualifications)
+            console.log(result.data.qualifications)
         }).catch(err => {
             console.log(err)
         })

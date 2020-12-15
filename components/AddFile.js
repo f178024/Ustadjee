@@ -1,10 +1,10 @@
 import {useState} from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+
 import Axios from 'axios'
 
 export default function AddFile(props){
-    const {courseID} = props
+    const {id} = props
     const [file, setFile] = useState(null)
 
     function handleFile(){
@@ -16,7 +16,7 @@ export default function AddFile(props){
         var formData = new FormData();
         
         formData.append("file", file)
-        // formData.append("courseID", courseID)
+        formData.append("id", id)
         Axios.post('/api/course/files', formData)
         .then(res => {
             toast.success('File Added')
@@ -33,7 +33,7 @@ export default function AddFile(props){
             
             <input type="file" name="file" id="file" onChange={e => setFile(e.target.files[0])}/>
             <input type="button" value="Upload File" onClick={handleFile} />
-            <ToastContainer />
+            
         </div>
     )
 }

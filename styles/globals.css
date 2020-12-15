@@ -12,15 +12,17 @@
 }
 
 html,
-body, .Toastify {
+body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: 500;
   min-height: 100vh;
 }
 
+.Toastify__toast{
+  font-weight: 500 !important;
+}
 a {
   @apply text-primary;
   text-decoration: none;
@@ -66,6 +68,21 @@ input[type=submit], button, input[type=button] {
 
 input[type=submit]:hover, button:hover {
   @apply opacity-75;
+}
+
+input[type=file]{
+  @apply bg-white h-12 py-4
+}
+
+input[type=file]::-webkit-file-upload-button {
+  display: none;
+}
+
+input[type=file]:before {
+  content: 'Pick File';
+  @apply shadow border-none p-2 my-2 mr-2 text-white transition rounded bg-primary cursor-pointer transition duration-500;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 h3 {

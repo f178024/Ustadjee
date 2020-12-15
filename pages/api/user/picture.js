@@ -24,7 +24,6 @@ async function handler(req, res) {
             let newPath = path.join(process.cwd(), "/public" + location)
             if (!fs.existsSync(newPath)) {
                 fs.mkdirSync(newPath, { recursive: true })
-                console.log(newPath)
             }
 
             const file = fs.readFileSync(files.file.path)
@@ -36,14 +35,14 @@ async function handler(req, res) {
                 $set: {
                     picture: location + req.session.get('id') + '.png'
                 }
-            }).then(res => {
+            }).then(response => {
                 res.json({ message: 'OK' })
             }).catch(err => {
-                res.status(404).json({ err })
+                res.status(500).send({ err })
             })
         } else {
             console.log(err)
-            res.status(404).json({ err })
+            res.status(500).send({ err })
         }
     })
 

@@ -10,7 +10,6 @@ export default function Course() {
 
     useEffect(() => {
         axios.get('/api/courses').then(result => {
-            // console.log(result.data)
             setCourses(result.data)
         }).catch(err => {
             console.log(err)
@@ -21,19 +20,14 @@ export default function Course() {
         <div>
             <Card>
                 <table className="w-full">
-                    <tr>
-                        <th>Name</th>
-                        <th>Students</th>
-                        <th>Rating</th>
-                        <th>Created</th>
-                    </tr>
                     {
                         courses.map(function (item) {
                             return <tr>
+                                <td><a href={"/course/" + item._id}><img src={'/api/course/image/' + item._id} className="h-12"/></a></td>
                                 <td><a href={"/course/" + item._id}>{item.title}</a></td>
-                                <td>{0}</td>
-                                <ReactStars count={5} />
-                                <td>{new Date(item.created).toGMTString()}</td>
+                                <td>{0} Students</td>
+                                <td><ReactStars count={5} /></td>
+                                <td className="text-sm text-gray-500">{new Date(item.created).toDateString()}</td>
                             </tr>
 
                         })

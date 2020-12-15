@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Axios from "axios";
 import Card from "../components/Card";
+import {toast} from 'react-toastify'
 
 export default function settings() {
     const [file, setFile] = useState(null)
@@ -17,8 +18,11 @@ export default function settings() {
 
         Axios.post('/api/user/picture', formData).then(result => {
             console.log(result)
+            toast.success('Picture Added')
+            
         }).catch(err => {
-            console.log(err)
+            toast.error('Could not add picture')
+            console.log(err.response.data.err.toString())
         })
     }
 

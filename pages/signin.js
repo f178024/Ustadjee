@@ -1,18 +1,19 @@
 import axios from 'axios'
+import {useRouter}from 'next/router'
 import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 export default function Home() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const router = useRouter()
 
   function handleLogin(){
     axios.post('/api/login', {email, password}).then(result => {
       let data = result.data
 
       if(!data.err){
-        window.location.href = '/'
+        router.push('/')
       } else {
         toast.error('Invalid Username/Password')
       }
@@ -34,7 +35,7 @@ export default function Home() {
           <input type="button" value="Sign In" className="ml-32" onClick={handleLogin}/>
         </div>
       </div>
-      <ToastContainer />
+      
     </div>
   )
 }

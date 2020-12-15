@@ -11,11 +11,12 @@ export const config = {
 
 export default async function handler(req, res) {
     const db = await useDatabase()
-    const courseID = '5fd5e5fe14199b30d8686344'
+    
 
     const form = new IncomingForm()
 
     form.parse(req, (err, fields, files) => {
+        const courseID = fields.id
         if (!err) {
             const content = fs.readFileSync(files?.file?.path)
             db.collection('Courses').updateOne(

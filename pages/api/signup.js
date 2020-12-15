@@ -1,25 +1,38 @@
-import admin from '../../firebase/firebase'
 import useDatabase from '../../mongodb/mongodb'
+import { withIronSession } from "next-iron-session";
 
-export default async function handler(req, res) {
+
+async function handler(req, res) {
     let { cnic, email, phone, username, password, day, month, year } = req.body
 
-    const auth = admin.auth()
-    const uid = ''
+    let db
+    useDatabase().then(database => {
+        db = database
+        return db.collection('Users').insert({
+            cnic,
+            email,
+            phone,
+            username,
+            password,
 
-    let db = await useDatabase()
-
-    db.collection('Users').insert({
-        email: 'sinan@gmail.com',
-        password: 'pass123',
-
-        qualifications: []
-    }, function (err, result) {
-        if (err) {
-            res.send(err)
-        }
-
-        res.send(result)
+            qualifications: []
+        })
+    }).then(result => {
+        req.session.set('id', result._id)
+        return req.session.save()
     })
-
+    .then(() => {
+        res.send({message: 'OK'})
+    }).catch(err => {
+        res.status(500).json({ err })
+        console.l
+    })
 }
+
+export default withIronSession(handler, {
+    password: "complex_password_at_least_32_characters_long",
+    cookieName: 'session',
+    cookieOptions: {
+        secure: process.env.NODE_ENV === "production",
+    },
+});

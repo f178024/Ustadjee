@@ -8,12 +8,8 @@ function TodaysActivity() {
             time: "08:00am"
         },
         {
-            name: "C++",
-            time: "08:00am"
-        },
-        {
-            name: "C++",
-            time: "08:00am"
+            name: "Algorithm",
+            time: "02:00pm"
         }
     ])
 
@@ -26,7 +22,7 @@ function TodaysActivity() {
                         return <div className="mx-4 sm:my-2">
                             <Card>
                                 <p className="text-2xl">{item.name}</p>
-                                <p className="text-lg">{item.time}</p>
+                                <p className="text-lg text-gray-500">{item.time}</p>
                             </Card>
                         </div>
                     })
