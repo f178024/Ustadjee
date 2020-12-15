@@ -1,3 +1,4 @@
+import Axios from 'axios'
 import {useState} from 'react'
 import Card from '../components/Card'
 
@@ -20,13 +21,7 @@ export default function AddQuiz() {
     const [option3, setOption3] = useState('')
     const [option4, setOption4] = useState('')
     const [questions, setQuestions] = useState([
-        {
-            question: "This is the first question?",
-            option1: "Option 1",
-            option2: "Option 2",
-            option3: "Option 3",
-            option4: "Option 4",
-        }
+        
     ])
 
     function handleValue(event){
@@ -86,6 +81,14 @@ export default function AddQuiz() {
         console.log(index, temp)
     }
 
+    function handleAddQuiz(){
+        Axios.post('/api/quiz', {questions: JSON.stringify(questions)}).then(result => {
+            console.log(result.data)
+        }).catch(err => {
+
+        })
+    }
+
     return (
         <div>
             <Card>
@@ -111,6 +114,10 @@ export default function AddQuiz() {
                         </select>
                     </div>
                     <button onClick={handleAddQuestion}>Add Question</button>
+                </div>
+                
+                <div className="flex flex-row justify-end">
+                    <button onClick={handleAddQuiz}>Create Quiz</button>
                 </div>
             </Card>
         </div>

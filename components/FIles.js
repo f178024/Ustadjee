@@ -3,24 +3,9 @@ import Card from './Card'
 import AddFile from './AddFile'
 
 
-export default function Files(){
-    const files = [
-        {
-            name: 'syllabus.pdf',
-            type: 'document/pdf',
-            date: '2 days ago',
-        },
-        {
-            name: 'syllabus.pdf',
-            type: 'document/pdf',
-            date: '2 days ago',
-        },
-        {
-            name: 'syllabus.pdf',
-            type: 'document/pdf',
-            date: '2 days ago',
-        },
-    ]
+export default function Files(props) {
+    const { files, id } = props
+
     return (
         <div className="mt-6">
             <div className="flex flex-row justify-between">
@@ -36,11 +21,11 @@ export default function Files(){
                         <th>Delete</th>
                     </tr>
                     {
-                        files.map(function(item){
+                        files.map(function (item) {
                             return <tr>
-                                <td>{ item.name }</td>
-                                <td>{ item.type }</td>
-                                <td>{ item.date }</td>
+                                <td><a href={'/api/course/' + id + '/files/' + item._id}>{item.name}</a></td>
+                                <td>{item.type}</td>
+                                <td>{item.date}</td>
                                 <td>Blank</td>
                             </tr>
                         })

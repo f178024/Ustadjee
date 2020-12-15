@@ -1,34 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-
-import courses from "../pages/courses";
+import ReactStars from 'react-stars'
 import Card from './Card'
 
 
 export default function Course() {
-    const [courses, setCourses] = useState([
-        {
-            id: "1",
-            name: "Course 1",
-            students: 69,
-            rating: 5,
-            created: "25 Nov, 2020"
-        },
-        {
-            id: "2",
-            name: "Course 2",
-            students: 69,
-            rating: 5,
-            created: "25 Nov, 2020"
-        },
-        {
-            id: "3",
-            name: "Course 3",
-            students: 69,
-            rating: 5,
-            created: "25 Nov, 2020"
-        },
-    ])
+    const [courses, setCourses] = useState([])
+
+    useEffect(() => {
+        axios.get('/api/courses').then(result => {
+            // console.log(result.data)
+            setCourses(result.data)
+        }).catch(err => {
+            console.log(err)
+        })
+    }, []);
 
     return (
         <div>
@@ -43,10 +30,10 @@ export default function Course() {
                     {
                         courses.map(function (item) {
                             return <tr>
-                                <td><a href={"/course/" + item.id}>{item.name}</a></td>
-                                <td>{item.students}</td>
-                                <td>{item.rating}</td>
-                                <td>{item.created}</td>
+                                <td><a href={"/course/" + item._id}>{item.title}</a></td>
+                                <td>{0}</td>
+                                <ReactStars count={5} />
+                                <td>{new Date(item.created).toGMTString()}</td>
                             </tr>
 
                         })

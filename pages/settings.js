@@ -1,10 +1,26 @@
+import Axios from "axios";
 import Card from "../components/Card";
 import TeacherDashboard from "../components/TeacherDashboard";
+import ChangePicture from "../components/ChangePicture";
+import Qualifications from "../components/Qualifications";
+
 
 export default function settings(){
+    function handleLogout(){
+        Axios.get('/api/logout').then(result => {
+            window.location.href = '/signin'
+        })
+    }
+
     return (
         <TeacherDashboard>
             <h1>Settings</h1>
+            <h2>Profile Picture</h2>
+            <ChangePicture />
+
+            <h2>Qualifications</h2>
+            <Qualifications />
+
             <h2>Reset Password</h2>
             <Card>
                 <div className="pt-4">
@@ -17,7 +33,7 @@ export default function settings(){
             <h2>Logout</h2>
             <Card>
                 <div className="pt-4">
-                    <input type="button" value="Logout" className="bg-red-500"/>
+                    <input type="button" value="Logout" className="bg-red-500" onClick={handleLogout}/>
                 </div>
             </Card>
         </TeacherDashboard>

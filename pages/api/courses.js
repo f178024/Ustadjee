@@ -1,23 +1,23 @@
+import { ObjectId } from "mongodb";
 import { withIronSession } from "next-iron-session";
 import useDatabase from '../../mongodb/mongodb'
 
 async function handler(req, res) {
 
-    let {title, description, subject, topic} = req.body
 
     let db = await useDatabase()
-    let _id = req.session.get('id')
+    let id = req.session.get('id')
 
-    db.collection('Courses').insertOne({
-        id: _id,
-        title,
-        description,
-        subject,
-        topic,
-        files: []
-    }).then(result => {
-        res.json({message: 'OK'})
+    db.collection('Courses').find({
+        id
+    }).toArray().then(result => {
+        for(let i = 0; i < result.length; i++){
+            result[i].created = new ObjectId(result[i]._id).getTimestamp()
+        }
+        console.log(result)
+        res.json(result)
     }).catch(err => {
+        console.log(err)
         res.json({err})
     })
 

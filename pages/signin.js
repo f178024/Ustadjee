@@ -1,7 +1,7 @@
 import axios from 'axios'
-import Head from 'next/head'
 import { useState } from 'react'
-import config from '../next.config'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const [email, setEmail] = useState('')
@@ -14,7 +14,7 @@ export default function Home() {
       if(!data.err){
         window.location.href = '/'
       } else {
-
+        toast.error('Invalid Username/Password')
       }
     }).catch(err => {
       console.log(err)
@@ -24,16 +24,17 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center pt-24">
       <h1>Sign in to Ustadjee</h1>
-      <div className="flex flex-col p-12 shadow md:max-w-md w-10/12">
+      <div className="flex flex-col p-12 shadow md:w-10/12">
         <label htmlFor="email">Email</label>
         <input type="email" name="email" id="" onChange={e => setEmail(e.target.value)}/>
         <label htmlFor="password" >Password</label>
         <input type="password" name="password" id=""onChange={e => setPassword(e.target.value)}/>
         <div className="flex justify-between">
           <a href="">Forgot Password?</a>
-          <input type="button" value="Sign In" onClick={handleLogin}/>
+          <input type="button" value="Sign In" className="ml-32" onClick={handleLogin}/>
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }

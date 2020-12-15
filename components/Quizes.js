@@ -1,32 +1,18 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 import Card from './Card'
 
 export default function Quizes(){
-    const [quizes, setQuizes] = useState([
-        {
-            id: "1",
-            name: "Open book quiz",
-            subject: "Computer Science",
-            date: "Yesterday",
-            questions: 10
-        },
+    const [quizes, setQuizes] = useState([])
 
-        {
-            id: "1",
-            name: "Open book quiz",
-            subject: "Computer Science",
-            date: "Yesterday",
-            questions: 10
-        },
-
-        {
-            id: "1",
-            name: "Open book quiz",
-            subject: "Computer Science",
-            date: "Yesterday",
-            questions: 10
-        }
-    ])
+    useEffect(() => {
+        axios.get('/api/quiz').then(result => {
+            console.log(result.data)
+            setQuizes(result.data)
+        }).catch(err => {
+            console.log(err)
+        })
+    }, []);
 
     return (
         <div>
@@ -45,7 +31,7 @@ export default function Quizes(){
                                 <td><a href={"/quiz/" + item.id}>{item.name}</a></td>
                                 <td>{item.subject}</td>
                                 <td>{item.date}</td>
-                                <td>{item.questions}</td>
+                                <td>{item.questions.length}</td>
                             </tr>
                         })
                     }

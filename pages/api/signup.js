@@ -11,7 +11,9 @@ export default async function handler(req, res) {
 
     db.collection('Users').insert({
         email: 'sinan@gmail.com',
-        password: 'pass123'
+        password: 'pass123',
+
+        qualifications: []
     }, function (err, result) {
         if (err) {
             res.send(err)
