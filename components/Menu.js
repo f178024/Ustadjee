@@ -1,17 +1,9 @@
 import { useState } from 'react'
 import {useRouter} from 'next/router'
 import MenuItem from './MenuItem'
-import { faChartPie, faChalkboardTeacher, faBook, faCalendarAlt, faClipboardList, faCog } from '@fortawesome/free-solid-svg-icons'
 
-export default function Menu() {
-    const [items, setItems] = useState([
-        { name: 'dashboard', link: '/', icon: faChartPie },
-        { name: 'class', link: '/class', icon: faChalkboardTeacher },
-        { name: 'courses', link: '/courses', icon: faBook },
-        { name: 'quiz', link: '/quiz', icon: faClipboardList },
-        { name: 'settings', link: '/settings', icon: faCog },
-    ])
-
+export default function Menu(props) {
+    const {items} = props
     const router = useRouter()
 
     return (

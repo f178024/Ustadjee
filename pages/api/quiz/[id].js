@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
     let db = await useDatabase()
 
-    db.collection('Quiz').findOne({
+    db.collection('Quizes').findOne({
         _id: ObjectId(id)
     }).then(result => {
         res.json(result)

@@ -28,9 +28,9 @@ export default function Quizes(){
                     {
                         quizes.map(function(item){
                             return <tr>
-                                <td><a href={"/quiz/" + item.id}>{item.name}</a></td>
+                                <td><a href={"/quiz/" + item._id}>{item.name}</a></td>
                                 <td>{item.subject}</td>
-                                <td>{item.date}</td>
+                                <td>{new Date(item.date).toDateString()}</td>
                                 <td>{item.questions.length}</td>
                             </tr>
                         })
