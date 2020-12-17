@@ -26,10 +26,18 @@ export default function AddCourse() {
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [subject, setSubject] = useState('')
+    const [subject, setSubject] = useState('Subject')
     const [topic, setTopic] = useState('')
     const [file, setFile] = useState(null)
     const [times, setTimes] = useState(['No Class', 'No Class', 'No Class', 'No Class', 'No Class', 'No Class', 'No Class'])
+    const topics = {
+        Subject: [],
+        Physics: ["Forces", "Motion", "Electricity"],
+        Chemistry: ["Bonds", "Atomic Structure", "Compounds", "Acids and Bases"],
+        Maths: ["Algebra", "Trigonometry", "Calculus"],
+        English: ["Grammar", "Tenses", "Essay Writing"],
+        Computer: ["Programming", "Hardware", "Networking"]
+    }
 
     function handleAddCourse(e) {
         e.preventDefault()
@@ -67,26 +75,32 @@ export default function AddCourse() {
         setTimes(temp)
     }
 
+    function handleSubjectChange(){
+
+    }
+
 
 
     return (
         <div>
             <Card>
-                <form onSubmit={handleAddCourse}>
+                <form className="py-4" onSubmit={handleAddCourse}>
                     <input type="text" name="title" id="title" placeholder="Title" onChange={event => setTitle(event.target.value)} minLength="5" required/><br />
                     <select name="" id="" onChange={e => setSubject(e.target.value)} required>
                         <option value="" selected disabled>Subject</option>
-                        <option value="">Physics</option>
-                        <option value="">Maths</option>
-                        <option value="">Chemistry</option>
-                        <option value="">English</option>
+                        <option>Physics</option>
+                        <option>Maths</option>
+                        <option>Chemistry</option>
+                        <option>English</option>
+                        <option>Computer</option>
                     </select>
                     <select name="" id="" onChange={e => setTopic(e.target.value)} required>
                         <option value="" selected disabled>Topic</option>
-                        <option value="">Maths</option>
-                        <option value="">Maths</option>
-                        <option value="">Chemistry</option>
-                        <option value="">English</option>
+                        {
+                            topics[subject].map(item => {
+                                return <option>{item}</option>
+                            })
+                        }
                     </select>
                     <br />
                     <table>

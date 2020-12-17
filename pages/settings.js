@@ -4,12 +4,18 @@ import TeacherDashboard from "../components/TeacherDashboard";
 import ChangePicture from "../components/ChangePicture";
 import Qualifications from "../components/Qualifications";
 
+import {toast} from "react-toastify";
+
 
 export default function settings(){
     function handleLogout(){
         Axios.get('/api/logout').then(result => {
             window.location.href = '/signin'
         })
+    }
+
+    function handleChangePassword(){
+        toast.success("Password Changed!")
     }
 
     return (
@@ -27,7 +33,7 @@ export default function settings(){
                     <input type="password" placeholder="Old Password"/>
                     <input type="password" placeholder="New Password"/>
                     <input type="password" placeholder="Re-enter new password"/>
-                    <input type="submit"/>
+                    <input type="submit" onClick={handleChangePassword}/>
                 </div>
             </Card>
             <h2>Logout</h2>

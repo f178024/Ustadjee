@@ -14,28 +14,28 @@ export default function Quizes(){
         })
     }, []);
 
+    function QuizTable(){
+        return (
+            <table className="w-full">
+                {
+                    quizes.map(function(item){
+                        return <tr>
+                            <td><a href={"/quiz/" + item._id}>{item.name}</a></td>
+                            <td>{item.subject}</td>
+                            <td>{new Date(item.date).toDateString()}</td>
+                            <td>{item.questions.length} Questions</td>
+                        </tr>
+                    })
+                }
+            </table>
+        )
+    }
+
     return (
         <div>
-            <h1>Quizes</h1>
+            <h1>Quiz</h1>
             <Card>
-                <table className="w-full">
-                    <tr>
-                        <th>Name</th>
-                        <th>Subject</th>
-                        <th>Date</th>
-                        <th>Questions</th>
-                    </tr>
-                    {
-                        quizes.map(function(item){
-                            return <tr>
-                                <td><a href={"/quiz/" + item._id}>{item.name}</a></td>
-                                <td>{item.subject}</td>
-                                <td>{new Date(item.date).toDateString()}</td>
-                                <td>{item.questions.length}</td>
-                            </tr>
-                        })
-                    }
-                </table>
+                {quizes.length > 0 ? <QuizTable /> : <h1 className="text-gray-500">You haven't added any quiz yet</h1>}
             </Card>
         </div>
     )

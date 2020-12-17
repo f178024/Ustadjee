@@ -2,6 +2,7 @@
 /* @import "tailwindcss/components"; */
 @import "tailwindcss/utilities";
 @import "tailwindcss/screens";
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
 .text-primary {
   @apply text-green-500;
@@ -11,17 +12,22 @@
   @apply bg-green-500;
 }
 
+.font {
+  font-family: 'PT Sans', sans-serif;
+}
+
 html,
 body {
+  @apply font;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   min-height: 100vh;
 }
 
 .Toastify__toast{
-  font-weight: 500 !important;
+  @apply font;
+  font-weight: 300 !important;
+  padding-left: 1rem;
 }
 a {
   @apply text-primary;
@@ -32,14 +38,13 @@ nav a {
 }
 
 * {
-  @apply font-semibold;
+  /*@apply font-semibold;*/
   box-sizing: border-box;
 }
 
 .input {
+  @apply font;
   @apply mb-6 bg-gray-200 border-none px-2;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   display: block;
 
 }
@@ -57,9 +62,7 @@ textarea {
 }
 
 input[type=submit], button, input[type=button] {
-  @apply shadow border-none p-2 text-white transition rounded bg-primary cursor-pointer transition duration-500;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply font shadow border-none p-2 text-white transition rounded bg-primary cursor-pointer transition duration-500;
 }
 
 input[type=submit]:hover, button:hover {
@@ -76,9 +79,7 @@ input[type=file]::-webkit-file-upload-button {
 
 input[type=file]:before {
   content: 'Pick File';
-  @apply shadow border-none p-2 my-2 mr-2 text-white transition rounded bg-primary cursor-pointer transition duration-500;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply font shadow border-none p-2 my-2 mr-2 text-white transition rounded bg-primary cursor-pointer transition duration-500;
 }
 
 h3 {

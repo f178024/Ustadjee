@@ -32,13 +32,19 @@ const Post = () => {
     })
   }, [router]);
 
+  function handleDeleteFile(index){
+    let temp = {...course}
+    temp.files.splice(index, 1)
+    setCourse(temp)
+  }
+
   return (
     <TeacherDashboard>
       <h1>Information of {course.title}</h1>
       <img src={'/api/course/image/' + course._id} alt=""/>
       <CourseDetails course={course} />
 
-      <Files files={course.files} id={id} />
+      <Files files={course.files} id={id} onDelete={handleDeleteFile}/>
       <AddAttendance />
     </TeacherDashboard>
   )
