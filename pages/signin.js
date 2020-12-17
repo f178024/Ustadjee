@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {useRouter}from 'next/router'
+import Link from 'next/link'
 import { useState } from 'react'
 import { toast } from 'react-toastify';
 
@@ -36,7 +37,15 @@ export default function Home() {
           <a href="">Forgot Password?</a>
           <input type="submit" value="Sign In" className="ml-32" />
         </div>
+
       </form>
+      <div className="pt-4">
+        <Link href="/signup">
+          <a>
+            Don't have an account? Click here to signup
+          </a>
+        </Link>
+      </div>
     </div>
   )
 }
