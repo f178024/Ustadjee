@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center pt-24">
-      <h1>Sign in to Ustadjee</h1>
+      <h1>Sign In to UstaadJee</h1>
       <form onSubmit={handleLogin} className="flex flex-col p-12 shadow md:w-10/12">
         <label htmlFor="email">Email</label>
         <input type="email" name="email" id="" onChange={e => setEmail(e.target.value)} required/>
@@ -42,7 +42,7 @@ export default function Home() {
       <div className="pt-4">
         <Link href="/signup">
           <a>
-            Don't have an account? Click here to signup
+            Don't have an Account? Click here to Sign Up.
           </a>
         </Link>
       </div>

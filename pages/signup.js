@@ -28,7 +28,7 @@ export default function signup() {
 
   return (
     <div className="flex flex-col items-center pt-24">
-      <h1>Create a new account</h1>
+      <h1>Create a New Account</h1>
       <form onSubmit={handleSignup} className="flex flex-col p-8 px-12 shadow sm:w-full">
         <input type="text" name="cnic" id="" placeholder="CNIC" onChange={e => setCNIC(e.target.value)} />
         <input type="email" name="email" id="" placeholder="Email" onChange={e => setEmail(e.target.value)} />
@@ -45,12 +45,11 @@ export default function signup() {
           <option value="">Parent</option>
         </select>
         <div className="flex justify-between pt-4">
-          <a href="" className="pr-8">Forgot Password?</a>
           <input type="submit" value="Sign Up"  />
         </div>
       </form>
       <Link href="/signin">
-        <a className="pt-4">Already have an account? Sing in</a>
+        <a className="pt-4">Already have an account? Sign In.</a>
       </Link>
 
     </div>
