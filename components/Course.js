@@ -4,6 +4,7 @@ import axios from 'axios'
 import ReactStars from 'react-stars'
 import Card from './Card'
 import Link from "next/link";
+import AddQuiz from "./AddQuiz";
 
 
 export default function Course() {

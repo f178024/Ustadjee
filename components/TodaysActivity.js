@@ -1,17 +1,9 @@
-import { useState } from 'react'
+import {useEffect, useState} from 'react'
 import Card from './Card'
+import axios from "axios";
 
-function TodaysActivity() {
-    const [classes, setClasses] = useState([
-        {
-            name: "C++",
-            time: "08:00am"
-        },
-        {
-            name: "Algorithm",
-            time: "02:00pm"
-        }
-    ])
+function TodaysActivity(props) {
+    const { classes } = props
 
     return (
         <div>

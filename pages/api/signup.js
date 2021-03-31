@@ -3,30 +3,28 @@ import { withIronSession } from "next-iron-session";
 
 
 async function handler(req, res) {
-    let { cnic, email, phone, username, password, day, month, year } = req.body
+    try {
 
-    let db
-    useDatabase().then(database => {
-        db = database
-        return db.collection('Users').insert({
-            cnic,
-            email,
-            phone,
-            username,
-            password,
 
-            qualifications: []
-        })
-    }).then(result => {
+        let { cnic, email, phone, username, password, day, month, year } = req.body
+
+        let db = await useDatabase()
+
+        console.log('Adding user ' + username)
+        let result = await db.collection('Users').insert(req.body)
+
+        console.log('Craeting Session for user id ' + result._id)
         req.session.set('id', result._id)
-        return req.session.save()
-    })
-    .then(() => {
-        res.send({message: 'OK'})
-    }).catch(err => {
-        res.status(500).json({ err })
-        console.l
-    })
+
+        console.log('Saving Session')
+        await req.session.save()
+
+        console.log('Sending response')
+        res.status(200).json({ message: 'OK' })
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({ error })
+    }
 }
 
 export default withIronSession(handler, {

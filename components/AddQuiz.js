@@ -13,19 +13,17 @@ function Question(props) {
             <DeleteButton onClick={props.onRemove} />
         </div>
     )
-
 }
 
-export default function AddQuiz() {
+export default function AddQuiz(props) {
+    let {courseId} = props
     const [name, setName] = useState('')
     const [question, setQuestion] = useState('')
     const [option1, setOption1] = useState('')
     const [option2, setOption2] = useState('')
     const [option3, setOption3] = useState('')
     const [option4, setOption4] = useState('')
-    const [questions, setQuestions] = useState([
-
-    ])
+    const [questions, setQuestions] = useState([])
 
     function handleValue(event) {
         const id = event.target.id
@@ -62,7 +60,7 @@ export default function AddQuiz() {
     }
 
     function handleAddQuestion() {
-        var addQuestion = {
+        let addQuestion = {
             name: "",
             question: "",
             option1: "",
@@ -92,11 +90,27 @@ export default function AddQuiz() {
         console.log(index, temp)
     }
 
+    function resetQuiz(){
+        setName('')
+        setQuestion('')
+        setOption1('')
+        setOption2('')
+        setOption3('')
+        setOption4('')
+        setQuestions([])
+    }
+
     function handleAddQuiz() {
-        Axios.post('/api/quiz', { name, questions: JSON.stringify(questions) }).then(result => {
+        Axios.post('/api/course/quiz/add',
+            {
+                courseId,
+                name,
+                questions: JSON.stringify(questions)
+            }).then(result => {
             toast.success('Quiz Added!')
+            resetQuiz()
         }).catch(err => {
-            toast.err('Could not add quiz.')
+            toast.error('Could not add quiz.')
         })
     }
 

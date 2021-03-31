@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ceaca281-ec96-4f85-8c60-c0357e42baa6" name="Default Changelist" comment="changed signup page" />
+    <list default="true" id="ceaca281-ec96-4f85-8c60-c0357e42baa6" name="Default Changelist" comment="changed signup page">
+      <change afterPath="$PROJECT_DIR$/components/student/Courses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/student/Quizes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/course/attendance/update.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/course/quiz/add.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/student/course/registerCourse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/student/course/registeredCourses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/student/course/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/student/quiz/submit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/student/course/[id].js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/session/session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AddAttendance.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/AddAttendance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AddQuiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/AddQuiz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ChangePicture.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ChangePicture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Course.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Quizes.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Quizes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/TeacherDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/TeacherDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/TodaysActivity.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/TodaysActivity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/addcourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/addcourse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/quiz/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/course/quiz/[id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/quiz/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/course/quiz/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/course/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/course/[id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/quiz/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/quiz/[id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/student/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/student/quiz/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/quiz/[id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/student/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/search.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1ljjWx1eZ0MEYSENvpi4APcjxl2" />
   <component name="ProjectViewState">
@@ -19,13 +65,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Things made for no reason\Ustadjee\pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Fast\Ustadjee\pages\api\student\quiz" />
+      <recent name="D:\Fast\Ustadjee\pages\api\student\course" />
+      <recent name="D:\Fast\Ustadjee\pages\api\course" />
     </key>
   </component>
   <component name="RunManager">
@@ -36,6 +88,7 @@
         <script value="dev" />
       </scripts>
       <node-interpreter value="project" />
+      <package-manager value="npm" />
       <envs />
       <method v="2" />
     </configuration>
@@ -50,6 +103,11 @@
       <updated>1608117468511</updated>
       <workItem from="1608117539388" duration="772000" />
       <workItem from="1608196890796" duration="10897000" />
+      <workItem from="1616248352798" duration="8517000" />
+      <workItem from="1616320942490" duration="6661000" />
+      <workItem from="1616349429270" duration="9678000" />
+      <workItem from="1616506422420" duration="28802000" />
+      <workItem from="1617185990256" duration="7473000" />
     </task>
     <task id="LOCAL-00001" summary="again a lot of things">
       <created>1608118265984</created>

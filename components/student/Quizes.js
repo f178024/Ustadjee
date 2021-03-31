@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import Card from './Card'
+import Card from './../Card'
 
 export default function Quizes(props){
     const {courseId, quizes} = props
@@ -11,7 +11,7 @@ export default function Quizes(props){
                 {
                     quizes.map(function(item){
                         return <tr>
-                            <td><a href={"/quiz/" + item._id}>{item.name}</a></td>
+                            <td><a href={"/student/quiz/" + item._id}>{item.name}</a></td>
                             <td>{item.subject}</td>
                             <td>{new Date(item.date).toDateString()}</td>
                             <td>{item.questions.length} Questions</td>

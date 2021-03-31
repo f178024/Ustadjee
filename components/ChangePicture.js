@@ -2,10 +2,11 @@ import {useState} from "react";
 import Axios from "axios";
 import Card from "../components/Card";
 import {toast} from 'react-toastify'
+import {useRouter} from "next/router";
 
 export default function settings() {
     const [file, setFile] = useState(null)
-
+    const router = useRouter()
 
     function handleAddPicture() {
         if(file == null){
@@ -13,12 +14,12 @@ export default function settings() {
             return
         }
 
-        var formData = new FormData();
+        let formData = new FormData();
         formData.append("file", file)
 
         Axios.post('/api/user/picture', formData).then(result => {
             console.log(result)
-            toast.success('Picture Added')
+            router.reload()
             
         }).catch(err => {
             toast.error('Could not add picture')

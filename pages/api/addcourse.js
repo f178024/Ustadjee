@@ -1,5 +1,6 @@
 import { withIronSession } from "next-iron-session";
 import useDatabase from '../../mongodb/mongodb'
+import {ObjectId} from 'mongodb'
 import { IncomingForm } from 'formidable'
 import fs from 'fs'
 
@@ -28,14 +29,15 @@ async function handler(req, res) {
         let _id = req.session.get('id')
 
         db.collection('Courses').insertOne({
-            id: _id,
+            id: ObjectId(_id),
             image: file,
             title,
             description,
             subject,
             topic,
             times: JSON.parse(times),
-            files: []
+            files: [],
+            quizes: []
         }).then(result => {
             res.json({ message: 'OK' })
         }).catch(err => {

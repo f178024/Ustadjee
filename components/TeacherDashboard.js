@@ -40,11 +40,8 @@ function TeacherDashboard(props) {
         )
     }
 
-    if(!loading){
-        return <Dashboard />
-    } else {
-        return null
-    }
+    return <Dashboard />
+
 }
 
 
