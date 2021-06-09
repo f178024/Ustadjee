@@ -1,11 +1,22 @@
 import { withIronSession } from "next-iron-session";
 import useDatabase from '../../../../mongodb/mongodb'
-
+const sourceFile=require('../../../student/search')
+var mongodb = require('mongodb');
 
 async function handler(req, res) {
-
+  //console.log(sourceFile.subject)
+  var temp=req.body.teacherid
+  //console.log(temp)
     let db = await useDatabase()
-    let result = await db.collection('Courses').aggregate([
+
+    let result = await db.collection("Courses").aggregate([
+        { '$match' : { 
+            'id' : mongodb.ObjectId(temp)
+        } 
+    },
+
+    { '$sort' : { 'rating' : -1 } } , 
+     
         {
           '$project': {
               'image': 0
@@ -25,9 +36,9 @@ async function handler(req, res) {
         }
     ]).toArray()
 
-  //  console.log(result)
-
-    res.json(result)
+  //   console.log(result)
+      res.json(result)
+      
 }
 
 export default withIronSession(handler, {

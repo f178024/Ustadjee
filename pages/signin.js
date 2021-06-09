@@ -11,12 +11,14 @@ export default function Home() {
 
   function handleLogin(e){
     e.preventDefault()
-
     axios.post('/api/login', {email, password}).then(result => {
+    // console.log(result.data.type)
       let data = result.data
-
       if(!data.err){
-        router.push('/')
+
+        if (result.data.type=='Student') {router.push('/student')}
+         else if (result.data.type=='Parent') {router.push('/parent')}
+        else if(result.data.type=='Teacher') {router.push('/')}
       } else {
         toast.error('Invalid Username/Password')
       }

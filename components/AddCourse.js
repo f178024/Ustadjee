@@ -3,8 +3,6 @@ import { toast } from 'react-toastify';
 import { useState } from 'react'
 import axios from 'axios'
 
-
-
 function TimeDropdown(props) {
     const times = ["No Class", "08:00 am", "09:00 am", "10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "03:00 pm", "04:00 pm", "05:00 pm", "06:00 pm", "07:00 pm", "08:00 pm"]
 
@@ -59,12 +57,15 @@ export default function AddCourse() {
         axios.post('/api/addcourse', formData).then(result => {
             if (!result.data.err) {
                 toast.success('✔ Course Added')
+               
             } else {
                 toast.error('Could not process your request')
             }
         }).then(result => {
             console.log(result)
         })
+
+        location.reload();
 
     }
 
@@ -78,8 +79,6 @@ export default function AddCourse() {
     function handleSubjectChange(){
 
     }
-
-
 
     return (
         <div>

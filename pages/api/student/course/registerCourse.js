@@ -1,6 +1,7 @@
 import { withIronSession } from "next-iron-session";
 import useDatabase from '../../../../mongodb/mongodb'
 import { ObjectId } from 'mongodb'
+var mongodb = require('mongodb');
 
 async function handler(req, res) {
     let db = await useDatabase()
@@ -16,6 +17,24 @@ async function handler(req, res) {
         }
     })
 
+
+    let previousStudentcount = await db.collection("Courses").aggregate([
+        {
+            '$match': {
+                '_id': mongodb.ObjectId(courseId)
+            }
+        }
+    ]).project({ totalStudents: 1, _id: 0 }).toArray()
+
+    console.log(previousStudentcount[0].totalStudents)
+   var newStudentcount = previousStudentcount[0].totalStudents + 1 ;
+    console.log(newStudentcount)
+  
+    db.collection('Courses').updateOne(
+
+        { '_id': mongodb.ObjectId(courseId) },
+        { $set: { 'totalStudents': newStudentcount } }
+    )
 
     res.json({message: 'OK'})
 

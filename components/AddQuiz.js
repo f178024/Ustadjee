@@ -23,6 +23,7 @@ export default function AddQuiz(props) {
     const [option2, setOption2] = useState('')
     const [option3, setOption3] = useState('')
     const [option4, setOption4] = useState('')
+    const [correct, setCorrect] = useState('')
     const [questions, setQuestions] = useState([])
 
     function handleValue(event) {
@@ -76,6 +77,7 @@ export default function AddQuiz(props) {
         addQuestion.option2 = option2
         addQuestion.option3 = option3
         addQuestion.option4 = option4
+        addQuestion.correct = correct
 
         if(question == '' || option1 == '' || option2 == '' || option3 == '' || option4 == '') return
 
@@ -134,11 +136,11 @@ export default function AddQuiz(props) {
                     </div>
                     <div className="flex flex-row items-center">
                         <label className="mr-4">Correct: </label>
-                        <select>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
+                        <select onClick={e => setCorrect(e.target.value)}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
                         </select>
                     </div>
                     <button onClick={handleAddQuestion}>Add Question</button>

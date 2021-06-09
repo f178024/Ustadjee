@@ -37,7 +37,11 @@ async function handler(req, res) {
             topic,
             times: JSON.parse(times),
             files: [],
-            quizes: []
+            quizes: [],
+            ratingArray : [] ,  //to keep all ratings
+            rating: 0,  //to keep final rating
+            status: "Current" , 
+            totalStudents: 0
         }).then(result => {
             res.json({ message: 'OK' })
         }).catch(err => {

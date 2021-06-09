@@ -112,6 +112,8 @@ export const getServerSideProps = withSession(async function (context){
             quizes: 1
         }
     })
+
+    console.log(submittedQuizes)
     submittedQuizes = submittedQuizes.quizes
 
     let thisSubmittedQuiz = submittedQuizes.filter(item => item._id == quizId)

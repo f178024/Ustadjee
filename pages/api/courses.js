@@ -3,13 +3,11 @@ import { withIronSession } from "next-iron-session";
 import useDatabase from '../../mongodb/mongodb'
 
 async function handler(req, res) {
-
-
     let db = await useDatabase()
     let id = req.session.get('id')
 
     db.collection('Courses').find({
-        id
+        id: ObjectId(id)
     }).toArray().then(result => {
         for(let i = 0; i < result.length; i++){
             result[i].created = new ObjectId(result[i]._id).getTimestamp()

@@ -6,12 +6,19 @@ async function handler(req, res) {
     try {
 
 
-        let { cnic, email, phone, username, password, day, month, year } = req.body
+        console.log(req.body.type)
+        let { cnic, email, phone, username, type , password, day, month, year } = req.body
 
         let db = await useDatabase()
 
         console.log('Adding user ' + username)
-        let result = await db.collection('Users').insert(req.body)
+        let result = await db.collection('Users').insert({
+            ...req.body,
+            quizes: [],
+            qualifications: [],
+            subject : []
+        }
+            )
 
         console.log('Craeting Session for user id ' + result._id)
         req.session.set('id', result._id)

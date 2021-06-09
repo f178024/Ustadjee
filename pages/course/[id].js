@@ -14,6 +14,7 @@ export default function Post(props) {
   const router = useRouter()
   const {students} = props
 
+  const [status, setStatus] = useState('')
   const [course, setCourse] = useState({
     title: '',
     description: '',
@@ -37,6 +38,14 @@ export default function Post(props) {
     }).catch(err => {
       console.log(err)
     })
+
+    axios.post('/api/student/course/courseStatus', {courseId: id}).then(result => {
+      console.log(result.data)
+      setStatus(result.data)
+   }).catch(err => {
+       console.log(err)
+   })
+
   }, [router]);
 
   function handleDeleteFile(index){
@@ -45,6 +54,30 @@ export default function Post(props) {
     setCourse(temp)
   }
 
+  console.log("Status: " + status)
+
+  const changeStatus = () => 
+  {
+    axios.post('/api/course/changeStatus', {courseId: id, status: "End"}).then(result => {
+      console.log(result.data)
+      setStatus(result.data)
+      location.reload()
+  }).catch(err => {
+      console.log(err)
+  })
+
+  }
+
+  if (status == 'End') { return (
+    <TeacherDashboard>
+      <h1>Information of {course.title}</h1>
+      <img src={'/api/course/image/' + course._id} alt="" width="300"/>
+      <CourseDetails course={course} />
+      <h1>Course has Been Ended</h1>
+    </TeacherDashboard>
+  )}
+  
+  else {
   return (
     <TeacherDashboard>
       <h1>Information of {course.title}</h1>
@@ -55,8 +88,11 @@ export default function Post(props) {
       <AddQuiz courseId={id}/>
       <Quizes quizes={course.quizes}/>
       <AddAttendance students={students} courseId={id} />
+      <button onClick={changeStatus}>End Course</button>
     </TeacherDashboard>
   )
+  }
+
 }
 
 export async function getServerSideProps(context){

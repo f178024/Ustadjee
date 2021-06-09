@@ -16,13 +16,14 @@ async function handler(req, res) {
     if (result != null) {
       req.session.set('id', result._id)
       req.session.save().then(() => {
-        res.json({ message: 'OK' })
+        res.json({ message: 'OK', type : result.type })
       })
 
     } else {
       res.json({ err: 'Incorrect Username/Password' })
     }
   })
+
 
 }
 export default withIronSession(handler, {

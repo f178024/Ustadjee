@@ -22,7 +22,7 @@ export default function Post(props) {
     return (
         <TeacherDashboard>
             <h1>Information of {quiz.name}</h1>
-            <h2>Qustions</h2>
+            <h2>Questions</h2>
             <Card>
                 <table className="w-full">
                     {

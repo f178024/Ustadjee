@@ -3,11 +3,13 @@ import Card from "../components/Card";
 import TeacherDashboard from "../components/TeacherDashboard";
 import ChangePicture from "../components/ChangePicture";
 import Qualifications from "../components/Qualifications";
-
+import ExpertSubject from "../components/ExpertSubject";
 import {toast} from "react-toastify";
+import { useEffect, useState } from 'react'
 
 
 export default function settings(){
+    const [Subject, setSubject] = useState('')
     function handleLogout(){
         Axios.get('/api/logout').then(result => {
             window.location.href = '/signin'
@@ -16,6 +18,16 @@ export default function settings(){
 
     function handleChangePassword(){
         toast.success("Password Changed!")
+    }
+
+    function addSubject(){
+
+        Axios.post('/api/expertSubject',{ subject: Subject }).then(response => {
+            console.log(response.data)
+            console.log("data Sent") 
+        })  .catch(error => {
+            console.log(error);
+          });
     }
 
     return (
@@ -27,7 +39,11 @@ export default function settings(){
             <h2>Qualifications</h2>
             <Qualifications />
 
+            <h2>Expert Subject</h2>
+            <ExpertSubject />
+             
             <h2>Reset Password</h2>
+           
             <Card>
                 <div className="pt-4">
                     <input type="password" placeholder="Old Password"/>

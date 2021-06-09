@@ -9,6 +9,7 @@ export default function signup() {
   const [phone, setPhone] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [type, setType] = useState('')
 
   function handleSignup(e) {
     e.preventDefault()
@@ -18,7 +19,8 @@ export default function signup() {
       email,
       password,
       phone,
-      username
+      username,
+      type
     }).then(result => {
       window.location.href = '/'
     }).catch(err => {
@@ -38,11 +40,11 @@ export default function signup() {
         <input type="password" name="password" id="" placeholder="Re-enter Password" />
         <label htmlFor="dob">Date of Birth</label>
         <input type="date" name="dob" id="dob" />
-        <select>
+        <select onChange={e => setType(e.target.value)}>
           <option value="" selected disabled>Account Type</option>
-          <option value="">Student</option>
-          <option value="">Teacher</option>
-          <option value="">Parent</option>
+          <option value="Student" >Student</option>
+          <option value="Teacher" >Teacher</option>
+          <option value="Parent">Parent</option>
         </select>
         <div className="flex justify-between pt-4">
           <input type="submit" value="Sign Up"  />
