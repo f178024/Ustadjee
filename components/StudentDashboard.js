@@ -12,7 +12,7 @@ function TeacherDashboard(props) {
         { name: 'dashboard', link: '/student', icon: faChartPie },
         { name: 'search', link: '/student/search', icon: faSearch },
         { name: 'searchTeacher', link: '/student/searchTeacher', icon: faBookReader },
-        { name: 'quiz', link: '/student/quiz', icon: faClipboardList },
+      //  { name: 'quiz', link: '/student/quiz', icon: faClipboardList },
         { name: 'settings', link: '/student/settings', icon: faCog },
     ])
 

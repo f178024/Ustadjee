@@ -3,7 +3,7 @@ import axios from 'axios'
 import Menu from '../components/Menu'
 import Topbar from '../components/Topbar'
 import ContentArea from '../components/ContentArea'
-import { faSearch, faChartPie, faCog, faClipboardList } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faChartPie, faCog, faClipboardList, faBookReader } from '@fortawesome/free-solid-svg-icons'
 
 function TeacherDashboard(props) {
     const [user, setUser] = useState({})
@@ -11,6 +11,7 @@ function TeacherDashboard(props) {
     const [items, setItems] = useState([
         { name: 'dashboard', link: '/parent', icon: faChartPie },
         { name: 'search', link: '/parent/search', icon: faSearch }, 
+        { name: 'searchTeacher', link: '/parent/searchTeacher', icon: faBookReader },
         { name: 'settings', link: '/parent/settings', icon: faCog },
    
     ])

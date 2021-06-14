@@ -42,7 +42,9 @@
     "react-stars": "^2.2.5",
     "react-toastify": "^6.2.0",
     "regex": "^0.1.1",
-    "store": "^2.0.12"
+    "store": "^2.0.12",
+    "twilio": "^3.54.2",
+    "twilio-video": "^2.14.0"
   },
   "browser": {
     "fs": false

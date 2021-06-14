@@ -12,7 +12,7 @@ function TeacherDashboard(props) {
         { name: 'dashboard', link: '/', icon: faChartPie },
         { name: 'class', link: '/class', icon: faChalkboardTeacher },
         { name: 'courses', link: '/courses', icon: faBook },
-        { name: 'quiz', link: '/quiz', icon: faClipboardList },
+      //  { name: 'quiz', link: '/quiz', icon: faClipboardList },
         { name: 'settings', link: '/settings', icon: faCog }
     ])
     useEffect(() => {

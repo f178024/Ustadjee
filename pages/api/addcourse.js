@@ -20,7 +20,7 @@ async function handler(req, res) {
             console.log(err)
             return
         }
-        let { title, description, subject, topic, times } = fields
+        let { title, description, subject, topic, times, payment, price } = fields
         let file = null
         if(files.file){
             file = fs.readFileSync(files.file.path)
@@ -41,7 +41,9 @@ async function handler(req, res) {
             ratingArray : [] ,  //to keep all ratings
             rating: 0,  //to keep final rating
             status: "Current" , 
-            totalStudents: 0
+            totalStudents: 0 , 
+            payment,
+            price
         }).then(result => {
             res.json({ message: 'OK' })
         }).catch(err => {
