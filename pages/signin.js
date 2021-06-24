@@ -44,7 +44,7 @@ export default function Home() {
       <div className="pt-4">
         <Link href="/signup">
           <a>
-            Don't have an Account? Click here to Sign Up.
+            Don't have an Account? Click here to <b>Sign Up</b>.
           </a>
         </Link>
       </div>

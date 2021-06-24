@@ -107,8 +107,8 @@ export default function Qualification(props) {
 
     useEffect(() => {
         axios.get('/api/user/qualification').then(result => {
-            setQualifications(result.data.qualifications)
-            console.log(result.data.qualifications)
+            setQualifications(result.data.qualification)
+            console.log(result.data.qualification)
         }).catch(err => {
             console.log(err)
         })

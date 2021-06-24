@@ -22,9 +22,10 @@ export default function Courses(props){
             <Card>
                 { courses.map(item => (
                     <Link href={"student/course/" + item._id}>
-                        <a>{ item.title }</a>
-                    </Link>
-                )) }
+                        <a className={'italic font-semibold text-9xl'}>{ item.subject } - {item.topic}<br/></a>
+                    </Link> 
+                ))   
+                }
             </Card>
         </div>
     )

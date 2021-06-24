@@ -52,12 +52,12 @@ export default function settings(){
                     <input type="submit" onClick={handleChangePassword}/>
                 </div>
             </Card>
-            <h2>Logout</h2>
-            <Card>
+            {/* <h2>Logout</h2> */}
+            {/* <Card>
                 <div className="pt-4">
                     <input type="button" value="Logout" className="bg-red-500" onClick={handleLogout}/>
                 </div>
-            </Card>
+            </Card> */}
         </TeacherDashboard>
     )
 }

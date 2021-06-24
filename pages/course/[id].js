@@ -88,7 +88,7 @@ export default function Post(props) {
       <AddQuiz courseId={id}/>
       <Quizes quizes={course.quizes}/>
       <AddAttendance students={students} courseId={id} />
-      <button onClick={changeStatus}>End Course</button>
+      <button className={'mt-8'} onClick={changeStatus}>End Course</button>
     </TeacherDashboard>
   )
   }

@@ -7,6 +7,9 @@ import TeacherDashboard from '../../../components/TeacherDashboard'
 import Quizes from "../../../components/student/Quizes";
 import StudentDashboard from "../../../components/StudentDashboard";
 import ReactStars from 'react-stars'
+import { loadStripe } from '@stripe/stripe-js';
+import { toast } from 'react-toastify';
+
 
 const Post = () => {
     const router = useRouter()
@@ -64,13 +67,34 @@ const Post = () => {
         return registeredCourses.indexOf(id) !== -1
     }
 
-    function registerCourse(){
-        axios.post('/api/student/course/registerCourse', {courseId: id}).then(result => {
-            console.log(result.data.status)
-            location.reload()
-        }).catch(err => {
-            console.log(err)
-        })
+    async function registerCourse(){
+        if(typeof course.payment === "undefined" || course.payment !== "Paid"){
+            axios.post('/api/student/course/registerCourse', {courseId: id}).then(result => {
+                console.log(result.data.status)
+                location.reload()
+            }).catch(err => {
+                console.log(err)
+            })
+        } else {
+            try {
+                // Get Stripe.js instance
+                const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+                                
+                // Call your backend to create the Checkout Session
+                const response = await axios.post('/api/stripe/checkout', {courseName: course.title, price: course.price, courseId: id});
+
+                const session = response.data;
+
+                // When the customer clicks on the button, redirect them to Checkout.
+                const result = await stripe.redirectToCheckout({
+                    sessionId: session.id,
+                });
+            } catch(error){
+                toast.error('Could not connect to Stripe')
+            }
+            
+        }
+            
     }
     var saveRating;
     const ratingChanged = (newRating) => {
@@ -96,10 +120,12 @@ const Post = () => {
         <StudentDashboard>
             <h1>Information of {course.title}</h1>
             <img src={'/api/course/image/' + course._id} alt="" width="280"/> <br/>
-            {
-                !isRegistered() ? (<button onClick={registerCourse}>Register Course</button>) : null
-            }
+      
             <CourseDetails course={course} />
+
+            {
+                !isRegistered() ? (<button className={'mt-4'} onClick={registerCourse}>Register Course</button>) : null
+            }
 
             {
                  isRegistered() ? (

@@ -7,7 +7,7 @@ export default function AddAttendance(props) {
     const [attendance, setAttendance] = useState([])
     const [date, setDate] = useState(new Date().toLocaleDateString('en-CA'))
 
-    function addAttendance(id, status){
+    async function addAttendance(id, status){
         let temp = [...attendance]
         for(let i = 0; i < temp.length; i++){
             if(temp.id === id) temp.status = status
@@ -17,6 +17,7 @@ export default function AddAttendance(props) {
 
     async function updateAttendance(){
         let result = await axios.post("/api/course/attendance/update", {attendance, date, courseId})
+
     }
 
     useEffect(() => {
@@ -39,8 +40,8 @@ export default function AddAttendance(props) {
                             return <tr>
                                 <td>{item.username}</td>
                                 <td>
-                                    <select defaultValue={item.status} onChange={() => addAttendance(item._id, item.status)}>
-                                        <option>Present</option>
+                                    <select defaultValue={item.status} onChange={(e) => addAttendance(item._id, e.target.value)}>
+                                        <option value="Present">Present</option>
                                         <option>Absent</option>
                                         <option>N/A</option>
                                     </select>

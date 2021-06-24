@@ -6,6 +6,8 @@ export default async function handler(req, res) {
 
     let db = await useDatabase()
 
+    console.log(attendance, date, courseId)
+
     for(let i = 0; i < attendance.length; i++){
         let result = await db.collection('Attendance').updateOne({
             courseId: ObjectId(courseId),
@@ -24,5 +26,5 @@ export default async function handler(req, res) {
             upsert: true
         })
     }
-
+    res.send('ok')
 }

@@ -22,6 +22,9 @@ async function handler(req, res) {
 
         console.log('Craeting Session for user id ' + result._id)
         req.session.set('id', result._id)
+        req.session.set('email', result.email)
+
+        req.session.set('email', result.username)
 
         console.log('Saving Session')
         await req.session.save()

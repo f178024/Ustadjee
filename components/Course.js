@@ -28,6 +28,7 @@ export default function Course() {
                                 <td><Link href={"/course/" + item._id}><a>{item.title}</a></Link></td>
                                 <td>{item.totalStudents} Students</td>
                                 <td><ReactStars value={item.rating} /></td>
+                                <td className="text-sm text-black-500">Status: <b className={'text-sm text-red-500'}>{item.status}</b></td>
                                 <td className="text-sm text-gray-500">{new Date(item.created).toDateString()}</td>
                             </tr>
 

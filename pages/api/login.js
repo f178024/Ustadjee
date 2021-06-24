@@ -15,6 +15,9 @@ async function handler(req, res) {
 
     if (result != null) {
       req.session.set('id', result._id)
+      req.session.set('email', result.email)
+
+      req.session.set('username', result.username)
       req.session.save().then(() => {
         res.json({ message: 'OK', type : result.type })
       })

@@ -2,7 +2,7 @@ import {useState} from 'react'
 import Card from './Card'
 
 export default function CourseDetails(props){
-    const {description, subject, topic} = props.course
+    const {description, subject, topic, price, payment} = props.course
     
     return (
         <div>
@@ -16,8 +16,21 @@ export default function CourseDetails(props){
 
                 <h3>Topic</h3>
                 <p>{topic}</p><br/>
-
-                
+               
+                {
+                        payment=='Paid' ? 
+                        <h3>Price</h3>
+                        : 
+                        null
+                    }
+              
+                {
+                        payment=='Paid' ? 
+                        <p className="m-0 text-sm text-red-500">$<b>{price} </b></p>
+                        : 
+                        null
+                    }
+             
             </Card>
         </div>
     )

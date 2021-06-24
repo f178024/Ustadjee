@@ -4,15 +4,15 @@ import Menu from '../components/Menu'
 import Topbar from '../components/Topbar'
 import ContentArea from '../components/ContentArea'
 import { faSearch, faChartPie, faCog, faClipboardList, faBookReader } from '@fortawesome/free-solid-svg-icons'
-
+import ('../node_modules/font-awesome/css/font-awesome.min.css');
 function TeacherDashboard(props) {
     const [user, setUser] = useState({})
     const [loading, setLoading] = useState(true)
     const [items, setItems] = useState([
-        { name: 'dashboard', link: '/parent', icon: faChartPie },
-        { name: 'search', link: '/parent/search', icon: faSearch }, 
-        { name: 'searchTeacher', link: '/parent/searchTeacher', icon: faBookReader },
-        { name: 'settings', link: '/parent/settings', icon: faCog },
+        { name: 'Dashboard', link: '/parent', icon: faChartPie },
+        { name: 'Search', link: '/parent/search', icon: faSearch }, 
+        { name: 'Teacher', link: '/parent/searchTeacher', icon: faBookReader },
+        { name: 'Settings', link: '/parent/settings', icon: faCog },
    
     ])
 

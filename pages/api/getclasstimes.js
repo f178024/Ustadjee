@@ -8,7 +8,7 @@ async function handler(req, res) {
 
     let result = await db.collection('Courses').aggregate([
         { '$match' : { 
-            'id': ObjectId(id)
+            'id': ObjectId(id) , 'status' : "Current"
         
         } 
     }]).project({ times: 1, _id: 0 }).toArray()

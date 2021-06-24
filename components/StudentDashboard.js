@@ -3,17 +3,19 @@ import axios from 'axios'
 import Menu from '../components/Menu'
 import Topbar from '../components/Topbar'
 import ContentArea from '../components/ContentArea'
-import { faSearch, faChartPie, faCog, faClipboardList, faBookReader } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faChartPie, faCog, faClipboardList, faChalkboardTeacher ,faBookReader } from '@fortawesome/free-solid-svg-icons'
+import ('../node_modules/font-awesome/css/font-awesome.min.css');
 
 function TeacherDashboard(props) {
     const [user, setUser] = useState({})
     const [loading, setLoading] = useState(true)
     const [items, setItems] = useState([
-        { name: 'dashboard', link: '/student', icon: faChartPie },
-        { name: 'search', link: '/student/search', icon: faSearch },
-        { name: 'searchTeacher', link: '/student/searchTeacher', icon: faBookReader },
+        { name: 'Dashboard', link: '/student', icon: faChartPie },
+        { name: 'Search', link: '/student/search', icon: faSearch },
+        { name: 'Teacher', link: '/student/searchTeacher', icon: faBookReader },
+        { name: 'Join Class', link: '/student/class', icon: faChalkboardTeacher },
       //  { name: 'quiz', link: '/student/quiz', icon: faClipboardList },
-        { name: 'settings', link: '/student/settings', icon: faCog },
+        { name: 'Settings', link: '/student/settings', icon: faCog },
     ])
 
     useEffect(() => {
@@ -34,6 +36,7 @@ function TeacherDashboard(props) {
                 <Topbar user={user} />
                 <div className="flex flex-1 min-h-screen flex-row sm:flex-col">
                     <Menu items={items}/>
+                  
                     <ContentArea>
                         {
                             props.children

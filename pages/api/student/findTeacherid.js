@@ -1,19 +1,25 @@
 import { withIronSession } from "next-iron-session";
 import useDatabase from '../../../mongodb/mongodb'
-var mongodb = require('mongodb');
+
 
 async function handler(req, res) {
+    var teacher= req.body.username
+    console.log(teacher)
     let db = await useDatabase()
-    var status=req.body.status
-    let { courseId } = req.body
-    console.log(courseId);
-    db.collection('Courses').updateOne(
+    let id = await db.collection("Users").aggregate([
+        {
+            '$match': {
+                'username': teacher
+            }
+        }
+    ]).toArray()
 
-        { '_id': mongodb.ObjectId(courseId) },
-        { $set: { 'status': status } }
-    )
+    console.log("Teacherid: " + id)
 
- 
+  //  console.log(result)
+
+    res.json(id)
+    //console.log(result)
 }
 
 export default withIronSession(handler, {

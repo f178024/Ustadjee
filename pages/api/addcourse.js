@@ -43,7 +43,7 @@ async function handler(req, res) {
             status: "Current" , 
             totalStudents: 0 , 
             payment,
-            price
+            price : parseInt(price)
         }).then(result => {
             res.json({ message: 'OK' })
         }).catch(err => {

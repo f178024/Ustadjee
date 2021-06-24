@@ -147,8 +147,10 @@ export default function AddQuiz(props) {
                 </div>
 
                 <div className="flex flex-row justify-end">
-                    <button onClick={handleAddQuiz}>Create Quiz</button>
+                    <button onClick={handleAddQuiz}>Finalize Quiz</button>
                 </div>
+
+                <p className={'font-bold text-red-600'}>*Finalize the quiz to Post!</p>
             </Card>
         </div>
     )

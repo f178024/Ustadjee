@@ -314,7 +314,7 @@ export default function AddCourse() {
     const [topic, setTopic] = useState('')
     const [file, setFile] = useState(null)
     const [paid, setPaid] = useState('')
-    const [price, setPrice] = useState('')
+    const [price, setPrice] = useState(0)
     const [times, setTimes] = useState(['No Class', 'No Class', 'No Class', 'No Class', 'No Class', 'No Class', 'No Class'])
     const topics = {
         Subject: [],
@@ -341,7 +341,7 @@ export default function AddCourse() {
         formData.append('times', JSON.stringify(oTimes))
         formData.append('file', file)
         formData.append('payment', paid)
-        formData.append('price', price)
+        formData.append('price',price)
 
 
         axios.post('/api/addcourse', formData).then(result => {
@@ -412,7 +412,12 @@ export default function AddCourse() {
                         <option>Paid</option>
                         <option>Free</option>
                     </select>
-                    <input type="text" placeholder="Rs." onChange={e => setPrice(e.target.value)} />
+                    {
+                        paid !== "Free" ?
+                        <input type="number" placeholder="$" onChange={e => setPrice(e.target.value)} />
+                        :
+                        null
+                    }
                     <br /><br />
                     <input type="submit" value="Add Course" />
                 </form>

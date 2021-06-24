@@ -7,11 +7,11 @@ export default function MenuItem(props) {
 
     return (
 
-        <li className={"list-none flex flex-col justify-center items-center py-6 w-100 sm:flex-1" + (active ? " bg-white" : "")}>
+        <li className={"list-none flex flex-col py-6 w-100 ml-0.5 sm:flex-1" + (active ? " bg-white" : "")}>
             <Link href={link}>
             <a>
                 <FontAwesomeIcon icon={icon} size={"lg"} className={"text-gray-500" + (active ? " text-primary" : "")} />
-                {/* <a href={link} >{name}</a>  */}
+                <a className={"ml-4 text-purple-500" } href={link} >{name}</a> 
             </a>
             </Link>
         </li>

@@ -50,7 +50,7 @@ export default function Subject(props) {
                     expertSubjects.map(item => {
                         return (
                             <div className="mb-6">
-                                <h2 className="py-0 my-0">{item.subject}</h2>
+                                <h2 className="py-0 my-0 text-base">{item}</h2>
                               
                             </div>
                         )
