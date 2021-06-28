@@ -17,15 +17,11 @@ function home(props) {
     console.log("titles", finalTitles)
 
         useEffect(() => {
-            try {
-            axios.post('/api/video/token', {roomName: dropdown}).then(response => {
+            axios.post('/api/video/token', { roomName: dropdown}).then(response => {
                 setToken(response.data.token)
                 console.log(token)
-              })
-
-            } catch(err){
-                toast.error('Could not connect to twilio')
-            }
+           
+        }).catch(err => { toast.error('Could not connect to twilio')})
         })
 
    

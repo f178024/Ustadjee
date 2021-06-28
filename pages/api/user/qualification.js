@@ -25,8 +25,10 @@ async function handler(req, res) {
     } else { // Get Qualifications
         db.collection('Users').findOne({ _id: ObjectId(id) },
             {
-                qualification: 1
+                qualifications: 1
             }).then(result => {
+
+                console.log(result)
                 res.json(result)
             }).catch(err => {
                 res.status(500).end()

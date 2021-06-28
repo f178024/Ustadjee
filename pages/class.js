@@ -16,14 +16,11 @@ function home(props) {
     const [dropdown, setDropdown] = useState('none')
     const { courses2 } = props
     useEffect(() => {
-        try {
             axios.post('/api/video/token', { roomName: dropdown}).then(response => {
                 setToken(response.data.token)
                 console.log(token)
-            })
-        } catch(err){
-            toast.error('Could not connect to twilio')
-        }
+           
+        }).catch(err => { toast.error('Could not connect to twilio')})
         
     })
 

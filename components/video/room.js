@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Video from 'twilio-video';
 import Participant from '../video/participants'
+import { toast } from 'react-toastify';
+
 
 const Room = ({ roomName, token, handleLogout }) => {
     const [room, setRoom] = useState(null);
@@ -23,7 +25,9 @@ const Room = ({ roomName, token, handleLogout }) => {
         room.on('participantConnected', participantConnected);
         room.on('participantDisconnected', participantDisconnected);
         room.participants.forEach(participantConnected);
-      });
+      }).catch(error => {
+        toast.error('Could not connect to twilio')
+      })
   
       return () => {
         setRoom(currentRoom => {
